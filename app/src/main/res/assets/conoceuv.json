@@ -4,62 +4,119 @@
         "classrooms": true,
         "laboratory": false,
         "title": "Edificio A",
-        "code": "EDF01"
+        "code": "EDF01",
+        "longitud": "-96.113982",
+        "latitud": "19.166171",
+        "descripcion": "5 salones en el 1er piso 1: A1, A2, A3, A4, A5"
     },
     {
         "classrooms": false,
         "laboratory": false,
         "title": "Microna",
-        "code": "EDF02"
+        "code": "EDF02",
+        "longitud": "-96.113564",
+        "latitud": "19.165929",
+        "descripcion": "El Centro de Investigaci�n en Micro y Nanotecnolog�a (MICRONA) es una entidad acad�mica de la Universidad Veracruzana, ubicada en Calzada Ruiz Cortines 455 en la Ciudad de Boca del R�o, Veracruz. Previamente inicia sus actividades en el 2003 como un Centro de Dise�o en Tecnolog�a MEMS (Sistemas MicroElectroMec�nicos); como resultado de una estrategia de desarrollo nacional encabezado por la Secretar�a de Econom�a."
     },
-     {
+    {
         "classrooms": true,
         "laboratory": true,
         "title": "Edificio F",
-        "code": "EDF03"
-      },
-     {
+        "code": "EDF03",
+        "longitud": "-96.113928",
+        "latitud": "19.16549",
+        "descripcion": "6 Salones 1er piso 1: F11, F12, F13, F14, F15, F16 y 6 Salones 2do piso:  F21, F22, F23, F24, F25, F26"
+    },
+    {
         "classrooms": false,
         "laboratory": false,
         "title": "Cafeteria",
-        "code": "EDF04"
-      },
-     {
+        "code": "EDF04",
+        "longitud": "-96.114296",
+        "latitud": "19.165668",
+        "descripcion": "Cafeteria de la Facultad de ingenieria"
+    },
+    {
         "classrooms": true,
         "laboratory": true,
         "title": "Edificio H",
-        "code": "EDF05"
-      },
-     {
+        "code": "EDF05",
+        "longitud": "-96.114319",
+        "latitud": "19.165455",
+        "descripcion": "4 salones el el 1er piso: H11, H12, H13, H14 y 4 salones en el  2do piso: H21, H22, H23, H24"
+    },
+    {
         "classrooms": false,
         "laboratory": false,
         "title": "Cubiculos",
-        "code": "EDF06"
-      },
-     {
+        "code": "EDF06",
+        "longitud": "-96.114272",
+        "latitud": "19.165917",
+        "descripcion": "Edificio donde se encuentran los cubiculos de los profesores"
+    },
+    {
         "classrooms": true,
         "laboratory": true,
         "title": "Edificio I",
-        "code": "EDF07"
-      },
-     {
+        "code": "EDF07",
+        "longitud": "-96.114501",
+        "latitud": "19.165216",
+        "descripcion": "6 salones en planta baja: I-1A, I-1B, I-2A, I-2B, I-3A, I-3B y 5 salones en el 2do piso: I-21, I-22, I-23, I-24, I-25"
+    },
+    {
         "classrooms": true,
         "laboratory": true,
         "title": "Edificio L",
-        "code": "EDF08"
-      },
-     {
+        "code": "EDF08",
+        "longitud": "-96.114566",
+        "latitud": "19.165092",
+        "descripcion": "1 salon en planta baja: 4L y 6 salones en el 1er piso: L5, L6, L7, L8, L9, L10"
+    },
+    {
         "classrooms": true,
         "laboratory": false,
         "title": "Edificio O",
-        "code": "EDF09"
-      },
-     {
+        "code": "EDF09",
+        "longitud": "-96.114544",
+        "latitud": "19.164916",
+        "descripcion": "2 salones en planta baja: O1, O2. Eventualmente en construccion"
+    },
+    {
         "classrooms": true,
         "laboratory": true,
         "title": "Edificio J",
-        "code": "EDF10"
-      }
+        "code": "EDF10",
+        "longitud": "-96.114138",
+        "latitud": "19.16511",
+        "descripcion": "Edificio donde se encuentran los salones de la carrera Ingeneria Naval y la Biblioteca de la Facultad"
+    }, 
+    {
+	"classrooms": false,
+        "laboratory": false,
+        "title": "Secretaria Academica",
+        "code": "EDF11",
+        "longitud": "-96.113879",
+        "latitud": "19.16481",
+        "descripcion": "Edificio donde se encuentran los cubiculos de las y los secretarios y encargados de papeleos academicos"
+    }, 
+    {
+	"classrooms": true,
+        "laboratory": true,
+        "title": "Edificio de Posgrado",
+        "code": "EDF12",
+        "longitud": "-96.114903",
+        "latitud": "19.165491",
+        "descripcion": "Edificio donde se imparten programas de posgrado"
+    }, 
+    {
+	"classrooms": false,
+        "laboratory": true,
+        "title": "Edificio K",
+        "code": "EDF13",
+        "longitud": "-96.114329",
+        "latitud": "19.16485",
+        "descripcion": "Edificio donde se encuentra el taller de mecanica"
+    }
   ],
   "Laboratorios" : {
     "LAB01" : {
@@ -101,6 +158,14 @@
     "LAB10" : {
       "edificio" : "EDF08",
       "title" : "Laboratorio Quimico"
+    },
+    "LAB11" : {
+      "edificio" : "EDF12",
+      "title" : "Laboratorio de Robotica"
+    },
+    "LAB12" : {
+      "edificio" : "EDF13",
+      "title" : "Taller de Mecanica"
     }
   }
 }

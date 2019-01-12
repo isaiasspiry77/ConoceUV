@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import conoceuv.com.conoceuv.Fragment.AboutFragment;
 import conoceuv.com.conoceuv.Fragment.Main_Page;
 
 public class MainActivity extends AppCompatActivity
@@ -101,6 +102,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_help:
                 break;
             case R.id.nav_about:
+                fm.beginTransaction()
+                        .addToBackStack(null)
+                        .replace(R.id.escenario,new AboutFragment()).commit();
                 break;
             default:
                 fm.beginTransaction()

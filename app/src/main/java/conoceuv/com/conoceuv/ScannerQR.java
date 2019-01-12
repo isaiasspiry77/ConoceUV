@@ -37,7 +37,6 @@ import java.util.ArrayList;
 
 import conoceuv.com.conoceuv.Fragment.InfoFragmentActivity;
 import conoceuv.com.conoceuv.Modelos.EdificioModel;
-import conoceuv.com.conoceuv.Modelos.Edificios;
 
 public class ScannerQR extends Fragment {
     SurfaceView cameraPreview;
@@ -77,8 +76,8 @@ public class ScannerQR extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         try {
+
             JSONObject obj = new JSONObject(loadJSONFromAsset());
             JSONArray m_jArray = obj.getJSONArray("Edificios");
             for(int i = 0;i<m_jArray.length();i++){
@@ -160,7 +159,6 @@ public class ScannerQR extends Fragment {
         });
 
     }
-
 
     public String loadJSONFromAsset() {
         String json = null;
