@@ -1,0 +1,106 @@
+{
+  "Edificios" : [
+    {
+        "classrooms": true,
+        "laboratory": false,
+        "title": "Edificio A",
+        "code": "EDF01"
+    },
+    {
+        "classrooms": false,
+        "laboratory": false,
+        "title": "Microna",
+        "code": "EDF02"
+    },
+     {
+        "classrooms": true,
+        "laboratory": true,
+        "title": "Edificio F",
+        "code": "EDF03"
+      },
+     {
+        "classrooms": false,
+        "laboratory": false,
+        "title": "Cafeteria",
+        "code": "EDF04"
+      },
+     {
+        "classrooms": true,
+        "laboratory": true,
+        "title": "Edificio H",
+        "code": "EDF05"
+      },
+     {
+        "classrooms": false,
+        "laboratory": false,
+        "title": "Cubiculos",
+        "code": "EDF06"
+      },
+     {
+        "classrooms": true,
+        "laboratory": true,
+        "title": "Edificio I",
+        "code": "EDF07"
+      },
+     {
+        "classrooms": true,
+        "laboratory": true,
+        "title": "Edificio L",
+        "code": "EDF08"
+      },
+     {
+        "classrooms": true,
+        "laboratory": false,
+        "title": "Edificio O",
+        "code": "EDF09"
+      },
+     {
+        "classrooms": true,
+        "laboratory": true,
+        "title": "Edificio J",
+        "code": "EDF10"
+      }
+  ],
+  "Laboratorios" : {
+    "LAB01" : {
+      "edificio" : "EDF01",
+      "title" : "Laboratorio de Computo"
+    },
+    "LAB02" : {
+      "edificio" : "EDF03",
+      "title" : "Laboratorio de Informatica Julio Acosta"
+    },
+    "LAB03" : {
+      "edificio" : "EDF03",
+      "title" : "Laboratorio de Quimicos"
+    },
+    "LAB04" : {
+      "edificio" : "EDF05",
+      "title" : "Laboratorio de Electronica"
+    },
+    "LAB05" : {
+      "edificio" : "EDF05",
+      "title" : "Laboratorio de Circuitos Electricos"
+    },
+    "LAB06" : {
+      "edificio" : "EDF07",
+      "title" : "Laboratorio de Informatica"
+    },
+    "LAB07" : {
+      "edificio" : "EDF07",
+      "title" : "Laboratorio Quimico"
+    },
+    "LAB08" : {
+      "edificio" : "EDF10",
+      "title" : "Taller Ingenieria Industrial"
+    },
+    "LAB09" : {
+      "edificio" : "EDF10",
+      "title" : "Laboratorio de Practicas Navales"
+    },
+    "LAB10" : {
+      "edificio" : "EDF08",
+      "title" : "Laboratorio Quimico"
+    }
+  }
+}

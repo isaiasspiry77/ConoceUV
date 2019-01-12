@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.util.JsonReader;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -23,16 +24,20 @@ import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import conoceuv.com.conoceuv.Fragment.InfoFragmentActivity;
 import conoceuv.com.conoceuv.Modelos.EdificioModel;
+import conoceuv.com.conoceuv.Modelos.Edificios;
 
 public class ScannerQR extends Fragment {
     SurfaceView cameraPreview;
@@ -41,8 +46,7 @@ public class ScannerQR extends Fragment {
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
 
-    FirebaseDatabase root = FirebaseDatabase.getInstance();
-    DatabaseReference ref = root.getReference("Edificios");
+    ArrayList<EdificioModel> datos = new ArrayList<>();
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -63,6 +67,7 @@ public class ScannerQR extends Fragment {
         }
     }
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -72,6 +77,19 @@ public class ScannerQR extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        try {
+            JSONObject obj = new JSONObject(loadJSONFromAsset());
+            JSONArray m_jArray = obj.getJSONArray("Edificios");
+            for(int i = 0;i<m_jArray.length();i++){
+                JSONObject io = m_jArray.getJSONObject(i);
+                EdificioModel edificioModel = new EdificioModel(io);
+                datos.add(edificioModel);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 
         cameraPreview = view.findViewById(R.id.cameraPreview);
         txtResult = view.findViewById(R.id.txtResult);
@@ -126,28 +144,15 @@ public class ScannerQR extends Fragment {
                             //Create vibrate
                             Vibrator vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(200);
-
-                            ref.addValueEventListener(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    String code = qrcodes.valueAt(0).displayValue;
-                                    for (DataSnapshot item : dataSnapshot.getChildren()) {
-                                        String compare = item.getKey();
-                                        Log.i("SCANNER", code+" "+compare+".");
-                                        if (code.equals(compare)) {
-                                            EdificioModel ed = item.getValue(EdificioModel.class);
-                                            Intent newIntent = new Intent(getActivity(), InfoFragmentActivity.class);
-                                            newIntent.putExtra("Edificio", ed);
-                                            startActivity(newIntent);
-                                        }
-                                    }
+                            String code = qrcodes.valueAt(0).displayValue;
+                            for (EdificioModel e: datos) {
+                                if(e.code.equals(code)){
+                                    Intent newIntent = new Intent(getActivity(), InfoFragmentActivity.class);
+                                    newIntent.putExtra("Edificio", e);
+                                    startActivity(newIntent);
                                 }
+                            }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                }
-                            });
                         }
                     });
                 }
@@ -155,4 +160,22 @@ public class ScannerQR extends Fragment {
         });
 
     }
+
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getActivity().getAssets().open("conoceuv.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
 }
